@@ -1,13 +1,13 @@
 {
   "name": "scripts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "author": "Kahlil Whitfield <darkristy2002@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "ncc build src/run-script.ts -o dist",
     "build:watch": "ncc build -w src/run-script.ts -o dist",
-		"release": "standard-version"
+    "release": "standard-version"
   },
   "dependencies": {
     "@vercel/ncc": "^0.27.0",
