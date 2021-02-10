@@ -5,12 +5,12 @@ import cliSelect from "cli-select";
 
 import createNew from "./scripts/create-new";
 
-const executeScript = (scriptName: string) => {
+const executeScript = (scriptName: string): any => {
 	const isCreateNew = scriptName === "create-new";
 	return (isCreateNew && createNew()) || new Error();
 };
 
-const run = async () => {
+const run = async (): Promise<void> => {
 	console.log(chalk.cyanBright(`❯ Choose a script to run.`));
 	const script = await cliSelect({
 		values: ["create-new", "Minor", "Patch"],
