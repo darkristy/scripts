@@ -5,8 +5,6 @@
   "author": "Kahlil Whitfield <darkristy2002@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "ncc build src/run-script.ts -o dist",
-    "build:watch": "ncc build -w src/run-script.ts -o dist",
     "release": "standard-version"
   },
   "dependencies": {
@@ -19,9 +17,6 @@
     "ora": "^5.3.0",
     "standard-version": "^9.1.0",
     "yargs": "^16.2.0"
-  },
-  "esm": {
-    "await": true
   },
   "devDependencies": {
     "@types/node": "^14.14.25",
