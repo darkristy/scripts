@@ -157,7 +157,7 @@ const taskList = (answers) => {
 	return [...createLocalProject, ...createGitRepository, ...pushProjectToGitRepository, ...installLocalDependencies];
 };
 
-const createNew = (): any => {
+export const createNew = (): any => {
 	inquirer
 		.prompt([
 			{
@@ -182,5 +182,3 @@ const createNew = (): any => {
 			tasks.run();
 		});
 };
-
-export default createNew;

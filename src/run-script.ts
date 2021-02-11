@@ -1,26 +1,34 @@
-#!/usr/bin/env js
+#!/usr/bin/env ts-node
 
 import * as chalk from "chalk";
+import * as ora from "ora";
 import cliSelect from "cli-select";
 
-import createNew from "./scripts/create-new";
+import { createNew } from "./scripts/create-new";
 
 const executeScript = (scriptName: string): any => {
 	const isCreateNew = scriptName === "create-new";
 	return (isCreateNew && createNew()) || new Error();
 };
 
-const run = async (): Promise<void> => {
+(async (): Promise<void> => {
 	console.log(chalk.cyanBright(`❯ Choose a script to run.`));
+
 	const script = await cliSelect({
-		values: ["create-new", "Minor", "Patch"],
+		values: ["create-new"],
 		unselected: "◯",
+		cleanup: true,
 		selected: chalk.redBright("◉"),
 		indentation: 2,
 		valueRenderer: (value, selected) => (selected ? chalk.redBright(value) : value),
 	});
 
-	executeScript(script.value);
-};
+	const spinner = ora(`Running script ${chalk.yellowBright(script.value)}`).start();
+	spinner.color = "yellow";
 
-run().catch((err) => new Error(err));
+	setTimeout(() => {
+		spinner.stop();
+		console.clear();
+		executeScript(script.value);
+	}, 200);
+})().catch((err) => new Error(err));
