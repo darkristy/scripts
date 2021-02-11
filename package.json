@@ -10,7 +10,6 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "@vercel/ncc": "^0.27.0",
     "chalk": "^4.1.0",
     "cli-select": "^1.1.2",
     "esm": "^3.2.25",
@@ -46,9 +45,5 @@
     "prettier": "^1.16.4",
     "ts-node": "^9.1.1",
     "typescript": "^3.7.3"
-  }, 
-	"pkg": {
-    "scripts": "src/scripts/**/*.js",
-    "assets": "views/**/*"
   }
 }
